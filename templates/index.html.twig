@@ -1,0 +1,16 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    <title>Bookings Application</title>
+{% endblock %}
+
+
+{% block body %}
+    <div class="content">
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    {{ include('footer.html.twig') }}
+{% endblock %}

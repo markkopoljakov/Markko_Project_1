@@ -1,0 +1,48 @@
+{% extends 'bookings/bookings.html.twig' %}
+
+{% block content %}
+    <h2>The list of bookings</h2>
+    {% if bookings is empty %}
+    <p>You don't have any bookings</p>
+    {% else %}
+        <table class="booking-table">
+            <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone</th>
+                <th>E-mail</th>
+                <th>Birthday</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Arrival Time</th>
+                <th>Additional Information</th>
+                <th>Number Of People</th>
+                <th>Paying Method</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.firstName }}</td>
+                    <td>{{ booking.lastName }}</td>
+                    <td>{{ booking.phone }}</td>
+                    <td>{{ booking.email }}</td>
+                    <td>{{ booking.birthdate|date('d.m.Y') }}</td>
+                    <td>{{ booking.startDate|date('d.m.Y') }}</td>
+                    <td>{{ booking.endDate|date('d.m.Y') }}</td>
+                    <td>{{ booking.arrivalTime|date('H:i') }}</td>
+                    <td>{{ booking.additionalInformation }}</td>
+                    <td>{{ booking.NumberOfPeople }}</td>
+                    <td>{{ booking.payingMethod }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/list.css">
+{% endblock %}
